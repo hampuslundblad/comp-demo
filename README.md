@@ -1,3 +1,26 @@
+# Frågor att svara på
+
+- Vad är vite? Hur funkar det?
+- Vad är Tanstack Query, hur funkar det? När ska man använda det?
+- Vad är Tanstack Router, hur funkar det? När ska man använda det?
+- Vad är Shadcn/ui, hur funkar det? När ska man använda det?
+
+# Vite
+
+# Tanstack Query
+
+# Tanstack Router
+
+# Shadcn
+
+Important to note is that shadcn requires tailwind. If this is undesirable then you'll either have to reconfigure the css yourself, however this loses a lot of the positives of shadcn, so then perhaps look of using another component library.
+
+## Installation
+
+See the installation guide on Shadcnui https://ui.shadcn.com/docs/installation/vite.
+
+# Tailwind
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -18,11 +41,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -31,11 +54,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -44,7 +67,7 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```
