@@ -16,9 +16,16 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const HiscoreLazyImport = createFileRoute('/hiscore')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const HiscoreLazyRoute = HiscoreLazyImport.update({
+  id: '/hiscore',
+  path: '/hiscore',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/hiscore.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -37,6 +44,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/hiscore': {
+      id: '/hiscore'
+      path: '/hiscore'
+      fullPath: '/hiscore'
+      preLoaderRoute: typeof HiscoreLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -44,32 +58,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
+  '/hiscore': typeof HiscoreLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
+  '/hiscore': typeof HiscoreLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
+  '/hiscore': typeof HiscoreLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/hiscore'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/hiscore'
+  id: '__root__' | '/' | '/hiscore'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
+  HiscoreLazyRoute: typeof HiscoreLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
+  HiscoreLazyRoute: HiscoreLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -82,11 +101,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/hiscore"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
+    },
+    "/hiscore": {
+      "filePath": "hiscore.lazy.tsx"
     }
   }
 }

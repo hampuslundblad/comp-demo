@@ -11,9 +11,15 @@
 
 # Tanstack Router
 
+Showcase
+
+- Skapa nya routes.
+
 # Shadcn
 
 Important to note is that shadcn requires tailwind. If this is undesirable then you'll either have to reconfigure the css yourself, however this loses a lot of the positives of shadcn, so then perhaps look of using another component library.
+
+Shadcn bygger på ett annat komponent bibliotek som heter radix, så även fast man inte har ett direkt dependency till shadcnui så har man fortfarande ett dependency till radix.
 
 ## Installation
 
