@@ -1,6 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosClient from "../api/client";
 
+type PlayerHiscoreResponse = {
+  skill: string;
+  level: string;
+  experience: string;
+}[];
+
 const usePlayerHiscore = (name: string) => {
   return useQuery({
     queryKey: ["test", name],
@@ -37,7 +43,9 @@ const skillNames = [
   "Construction",
 ];
 
-const fetchPlayerHiscore = async (name: string) => {
+const fetchPlayerHiscore = async (
+  name: string
+): Promise<PlayerHiscoreResponse> => {
   const response = await axiosClient.get(`osrs?player=${name}`);
   if (response.status !== 200) {
     throw new Error("Network response was not ok");

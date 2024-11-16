@@ -5,6 +5,10 @@
 - Vad är Tanstack Router, hur funkar det? När ska man använda det?
 - Vad är Shadcn/ui, hur funkar det? När ska man använda det?
 
+
+- XP comparison över tid.
+
+
 # Vite
 
 # Tanstack Query

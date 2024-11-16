@@ -8,14 +8,21 @@ import {
   TableCell,
   Table,
 } from "./ui/table";
+import { Skeleton } from "./ui/skeleton";
 
 interface MainTableProps {
   headings: string[];
-  tableData: { [key: string]: number | string | boolean }[];
+  tableData: { [key: string]: number | string | boolean }[] | undefined;
   caption?: string;
+  isLoading?: boolean;
 }
 
-const MainTable: FC<MainTableProps> = ({ headings, tableData, caption }) => {
+const MainTable: FC<MainTableProps> = ({
+  headings,
+  tableData,
+  caption,
+  isLoading = false,
+}) => {
   return (
     <Table>
       {caption ? <TableCaption> {caption} </TableCaption> : undefined}
@@ -27,6 +34,19 @@ const MainTable: FC<MainTableProps> = ({ headings, tableData, caption }) => {
         </TableRow>
       </TableHeader>
       <TableBody>
+        {isLoading && (
+          <>
+            {[...Array(3)].map((_, i) => (
+              <TableRow key={i}>
+                {headings.map((heading) => (
+                  <TableCell key={heading + i}>
+                    <Skeleton className="h-4 w-20" />
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </>
+        )}
         {tableData &&
           tableData.length > 0 &&
           tableData.map((row, index) => (
