@@ -13,10 +13,10 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/.api/osrs": {
-        target:
-          "https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws",
-        rewrite: (path) => path.replace(/^\/\.api\/osrs/, ""),
+      "/.api": {
+        target: "http://localhost:5241",
+
+        rewrite: (path) => path.replace(/^\/\.api/, ""),
         changeOrigin: true,
         secure: false,
         ws: true,
@@ -31,6 +31,7 @@ export default defineConfig({
             console.log(
               "Received Response from the Target:",
               proxyRes.statusCode,
+              proxyRes.statusMessage,
               req.url
             );
           });

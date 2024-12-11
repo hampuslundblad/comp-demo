@@ -14,7 +14,7 @@ export const Route = createLazyFileRoute("/hiscore")({
 function RouteComponent() {
   const [name, setName] = useState("");
   const { data, isLoading, isError } = usePlayerHiscore(name);
-  console.log(data);
+
   return (
     <Layout>
       <div className="flex flex-col gap-8 w-1/2">
@@ -26,7 +26,7 @@ function RouteComponent() {
         />
         {
           <MainTable
-            headings={["Skill", "Level", "XP"]}
+            headings={["Skill", "Level", "XP", "Rank"]}
             tableData={data}
             isLoading={isLoading}
           />
