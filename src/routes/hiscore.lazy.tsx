@@ -27,7 +27,7 @@ function RouteComponent() {
         {
           <MainTable
             headings={["Skill", "Level", "XP", "Rank"]}
-            tableData={data}
+            tableData={data?.skills}
             isLoading={isLoading}
           />
         }
