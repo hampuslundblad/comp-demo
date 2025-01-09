@@ -9,8 +9,7 @@ interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 const Title: FC<TitleProps> = ({ children, props, className }) => {
   return (
     <h1 {...props} className={cn("text-3xl font-bold", className)}>
-      {" "}
-      {children}{" "}
+      {children}
     </h1>
   );
 };

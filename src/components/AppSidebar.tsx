@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Home, Trophy } from "lucide-react";
+import { Home, Trophy, User } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "@tanstack/react-router";
 
@@ -22,8 +22,13 @@ const items = [
   },
   {
     title: "Hiscore",
-    url: "/hiscore",
+    url: "hiscore",
     icon: Trophy,
+  },
+  {
+    title: "My groups",
+    url: "mygroups",
+    icon: User,
   },
 ];
 

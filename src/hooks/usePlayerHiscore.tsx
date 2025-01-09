@@ -6,6 +6,7 @@ const usePlayerHiscore = (name: string) => {
     queryKey: ["test", name],
     queryFn: () => fetch(name),
     enabled: !!name,
+    retry: 0,
     staleTime: 1000 * 60 * 5, // 5 minutes
   });
 };
