@@ -1,4 +1,4 @@
-import path from "path";
+import * as path from "jsr:@std/path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), TanStackRouterVite()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(new URL(".", import.meta.url).pathname, "./src"),
     },
   },
   server: {
@@ -24,7 +24,7 @@ export default defineConfig({
           proxy.on("error", (err, _req, _res) => {
             console.log("proxy error", err);
           });
-          proxy.on("proxyReq", (proxyReq, req, _res) => {
+          proxy.on("proxyReq", (_proxyReq, req, _res) => {
             console.log("Sending Request to the Target:", req.method, req.url);
           });
           proxy.on("proxyRes", (proxyRes, req, _res) => {
@@ -32,7 +32,7 @@ export default defineConfig({
               "Received Response from the Target:",
               proxyRes.statusCode,
               proxyRes.statusMessage,
-              req.url
+              req.url,
             );
           });
         },

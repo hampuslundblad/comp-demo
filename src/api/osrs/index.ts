@@ -20,11 +20,11 @@ export type Skill = {
 };
 
 export async function fetchHiscoreByName(
-  name: string
+  name: string,
 ): Promise<HiscoreByNameResposne> {
   try {
     const response: AxiosResponse = await axiosClient.get(
-      `player/hiscore?name=${name}`
+      `player/hiscore?name=${name}`,
     );
     return response.data;
   } catch (e: unknown) {

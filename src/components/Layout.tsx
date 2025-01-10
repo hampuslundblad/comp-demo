@@ -1,5 +1,5 @@
 import { ChevronLeft } from "lucide-react";
-import Title from "./ui/title";
+import Title from "@/components/ui/title.tsx";
 import { Link } from "@tanstack/react-router";
 
 type LayoutProps = {
@@ -13,7 +13,7 @@ const Layout = ({ children, title, showBackButton = false }: LayoutProps) => {
     <div className="mx-12 w-full pt-20">
       {showBackButton ? <BackButton /> : <span />}
       <div className="">
-        {title && <Title className=""> {title} </Title>}
+        {title && <Title className="">{title}</Title>}
         {children}
       </div>
     </div>

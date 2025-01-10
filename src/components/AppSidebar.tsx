@@ -8,9 +8,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar.tsx";
 import { Home, Trophy, User } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle.tsx";
 import { Link } from "@tanstack/react-router";
 
 // Menu items.

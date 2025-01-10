@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Button } from "@/components/ui/button.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { Label } from "@/components/ui/label.tsx";
 
 interface SearchProps {
   id: string;
@@ -24,12 +24,12 @@ const Search: FC<SearchProps> = ({ id, label, onSearch }: SearchProps) => {
   return (
     <>
       <div className="flex flex-col gap-2 w-96">
-        <Label htmlFor={id}> {label} </Label>
+        <Label htmlFor={id}>{label}</Label>
         <div className="flex gap-2">
           <Input ref={inputRef} id={id} />
           <Button onClick={handleClick}>Search</Button>
         </div>
-        {showError && <Label> This field cannot be empty</Label>}
+        {showError && <Label>This field cannot be empty</Label>}
       </div>
     </>
   );
