@@ -1,14 +1,13 @@
-import { FC } from "react";
 import {
+  Table,
+  TableBody,
   TableCaption,
+  TableCell,
+  TableHead,
   TableHeader,
   TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-  Table,
-} from "./ui/table";
-import { Skeleton } from "./ui/skeleton";
+} from "@/components/ui/table.tsx";
+import { Skeleton } from "@/components/ui/skeleton.tsx";
 
 interface MainTableProps {
   headings: string[];
@@ -17,19 +16,19 @@ interface MainTableProps {
   isLoading?: boolean;
 }
 
-const MainTable: FC<MainTableProps> = ({
+const MainTable = ({
   headings,
   tableData,
   caption,
   isLoading = false,
-}) => {
+}: MainTableProps) => {
   return (
     <Table>
-      {caption ? <TableCaption> {caption} </TableCaption> : undefined}
+      {caption ? <TableCaption>{caption}</TableCaption> : undefined}
       <TableHeader>
         <TableRow>
           {headings.map((heading) => (
-            <TableHead key={heading}> {heading}</TableHead>
+            <TableHead key={heading}>{heading}</TableHead>
           ))}
         </TableRow>
       </TableHeader>

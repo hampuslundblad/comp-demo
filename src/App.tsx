@@ -1,10 +1,10 @@
-import { Button } from "./components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 
 function App() {
   return (
     <>
       hej
-      <Button> Click me</Button>
+      <Button>Click me</Button>
     </>
   );
 }

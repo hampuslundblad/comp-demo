@@ -5,9 +5,7 @@
 - Vad är Tanstack Router, hur funkar det? När ska man använda det?
 - Vad är Shadcn/ui, hur funkar det? När ska man använda det?
 
-
 - XP comparison över tid.
-
 
 # Vite
 
@@ -21,28 +19,38 @@ Showcase
 
 # Shadcn
 
-Important to note is that shadcn requires tailwind. If this is undesirable then you'll either have to reconfigure the css yourself, however this loses a lot of the positives of shadcn, so then perhaps look of using another component library.
+Important to note is that shadcn requires tailwind. If this is undesirable then
+you'll either have to reconfigure the css yourself, however this loses a lot of
+the positives of shadcn, so then perhaps look of using another component
+library.
 
-Shadcn bygger på ett annat komponent bibliotek som heter radix, så även fast man inte har ett direkt dependency till shadcnui så har man fortfarande ett dependency till radix.
+Shadcn bygger på ett annat komponent bibliotek som heter radix, så även fast man
+inte har ett direkt dependency till shadcnui så har man fortfarande ett
+dependency till radix.
 
 ## Installation
 
-See the installation guide on Shadcnui https://ui.shadcn.com/docs/installation/vite.
+See the installation guide on Shadcnui
+https://ui.shadcn.com/docs/installation/vite.
 
 # Tailwind
 
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR and
+some ESLint rules.
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+  uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
+  uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+If you are developing a production application, we recommend updating the
+configuration to enable type aware lint rules:
 
 - Configure the top-level `parserOptions` property like this:
 
@@ -58,9 +66,13 @@ export default tseslint.config({
 });
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Replace `tseslint.configs.recommended` to
+  `tseslint.configs.recommendedTypeChecked` or
+  `tseslint.configs.strictTypeChecked`
 - Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Install
+  [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and
+  update the config:
 
 ```js
 // eslint.config.js
@@ -81,3 +93,13 @@ export default tseslint.config({
   },
 });
 ```
+
+### Deno
+
+- Uppdatera alias
+- Lägga till alla deps i deno.json
+- Lägga till bygg/dev kommandon
+- Lägga till compilerOptions, yeeta tsconfig.
+- Ändra window till globalThis.window
+- Ignorera routeTree.gen.ts för linter
+- För att få forwardRef typer att fungera behövde jag lägga till en react.d.ts fil. https://github.com/denoland/deno/issues/25341

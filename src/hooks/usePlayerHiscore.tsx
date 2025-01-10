@@ -1,4 +1,4 @@
-import { fetchHiscoreByName, Skill } from "@/api/osrs";
+import { fetchHiscoreByName, Skill } from "@/api/osrs/index.ts";
 import { useQuery } from "@tanstack/react-query";
 
 const usePlayerHiscore = (name: string) => {

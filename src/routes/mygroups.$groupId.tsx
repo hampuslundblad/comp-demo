@@ -1,6 +1,11 @@
-import { fetchHiscoreByName } from "@/api/osrs";
-import Layout from "@/components/Layout";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { fetchHiscoreByName } from "@/api/osrs/index.ts";
+import Layout from "@/components/Layout.tsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/mygroups/$groupId")({
@@ -16,9 +21,9 @@ export const Route = createFileRoute("/mygroups/$groupId")({
 });
 
 function RouteComponent() {
-  const data = Route.useLoaderData();
+  const _data = Route.useLoaderData();
 
-  const { groupId } = Route.useParams();
+  const { _groupId } = Route.useParams();
 
   return (
     <Layout title="My groups" showBackButton>
@@ -39,7 +44,7 @@ const PlayerCard = ({ playerName }: { playerName: string }) => {
       </CardHeader>
       <CardContent>
         <div>
-          <p>Total level : 1337</p> <p> Experience gained last week : 1.2m </p>
+          <p>Total level : 1337</p> <p>Experience gained last week : 1.2m</p>
         </div>
       </CardContent>
     </Card>

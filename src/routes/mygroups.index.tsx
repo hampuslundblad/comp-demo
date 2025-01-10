@@ -1,7 +1,12 @@
-import Layout from "@/components/Layout";
-import Search from "@/components/Search";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Layout from "@/components/Layout.tsx";
+import Search from "@/components/Search.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx";
 import {
   Dialog,
   DialogContent,
@@ -9,8 +14,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/dialog.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MinusIcon, PlusIcon } from "lucide-react";
 
@@ -51,7 +56,7 @@ function RouteComponent() {
               </div>
               <div className="mt-4 mb-4">
                 <Separator orientation="horizontal" />
-                <h2 className="text-1xl font-bold mt-4"> Added players </h2>
+                <h2 className="text-1xl font-bold mt-4">Added players</h2>
                 <div>
                   <span className="flex justify-between gap-2 items-center w-1/5 ">
                     368 int <MinusIcon size={16} />
@@ -106,15 +111,17 @@ const ExampleGroupCard = () => {
         <CardContent>
           <ol>
             <li>
-              368 int <span> </span>
+              368 int <span></span>
             </li>
-            <li> inteals </li>
-            <li> random user </li>
+            <li>inteals</li>
+            <li>random user</li>
           </ol>
         </CardContent>
-        {/* <CardFooter>
+        {
+          /* <CardFooter>
         <Button size="sm">Delete group</Button>
-      </CardFooter> */}
+      </CardFooter> */
+        }
       </Card>
     </Link>
   );
