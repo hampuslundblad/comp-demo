@@ -1,9 +1,5 @@
-import axios, { AxiosResponse } from "axios";
-
-const axiosClient = axios.create({
-  baseURL: "http://localhost:5173/.api/",
-});
-
+import { AxiosResponse } from "axios";
+import { apiClient } from "../axios";
 export type HiscoreByNameResposne = {
   name: string;
   rank: number;
@@ -23,7 +19,7 @@ export async function fetchHiscoreByName(
   name: string
 ): Promise<HiscoreByNameResposne> {
   try {
-    const response: AxiosResponse = await axiosClient.get(
+    const response: AxiosResponse = await apiClient.get(
       `player/hiscore?name=${name}`
     );
     return response.data;

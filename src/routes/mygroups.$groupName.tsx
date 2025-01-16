@@ -1,12 +1,12 @@
-import { fetchHiscoreByName } from "@/api/osrs";
+import { fetchHiscoreByName } from "@/api/hiscore";
 import Layout from "@/components/Layout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/mygroups/$groupId")({
+export const Route = createFileRoute("/mygroups/$groupName")({
   loader: () => {
-    const response = fetchHiscoreByName("test");
-    return response;
+    // const response = fetchHiscoreByName("test");
+    // return response;
   },
   staleTime: 10 * 60 * 1000, // 10 minutes
 
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/mygroups/$groupId")({
 function RouteComponent() {
   const data = Route.useLoaderData();
 
-  const { groupId } = Route.useParams();
+  const { groupName } = Route.useParams();
 
   return (
     <Layout title="My groups" showBackButton>

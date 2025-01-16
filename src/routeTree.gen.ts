@@ -14,7 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as MygroupsIndexImport } from './routes/mygroups.index'
-import { Route as MygroupsGroupIdImport } from './routes/mygroups.$groupId'
+import { Route as MygroupsGroupNameImport } from './routes/mygroups.$groupName'
 
 // Create Virtual Routes
 
@@ -41,9 +41,9 @@ const MygroupsIndexRoute = MygroupsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const MygroupsGroupIdRoute = MygroupsGroupIdImport.update({
-  id: '/mygroups/$groupId',
-  path: '/mygroups/$groupId',
+const MygroupsGroupNameRoute = MygroupsGroupNameImport.update({
+  id: '/mygroups/$groupName',
+  path: '/mygroups/$groupName',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -65,11 +65,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiscoreLazyImport
       parentRoute: typeof rootRoute
     }
-    '/mygroups/$groupId': {
-      id: '/mygroups/$groupId'
-      path: '/mygroups/$groupId'
-      fullPath: '/mygroups/$groupId'
-      preLoaderRoute: typeof MygroupsGroupIdImport
+    '/mygroups/$groupName': {
+      id: '/mygroups/$groupName'
+      path: '/mygroups/$groupName'
+      fullPath: '/mygroups/$groupName'
+      preLoaderRoute: typeof MygroupsGroupNameImport
       parentRoute: typeof rootRoute
     }
     '/mygroups/': {
@@ -87,14 +87,14 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/hiscore': typeof HiscoreLazyRoute
-  '/mygroups/$groupId': typeof MygroupsGroupIdRoute
+  '/mygroups/$groupName': typeof MygroupsGroupNameRoute
   '/mygroups': typeof MygroupsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/hiscore': typeof HiscoreLazyRoute
-  '/mygroups/$groupId': typeof MygroupsGroupIdRoute
+  '/mygroups/$groupName': typeof MygroupsGroupNameRoute
   '/mygroups': typeof MygroupsIndexRoute
 }
 
@@ -102,30 +102,30 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
   '/hiscore': typeof HiscoreLazyRoute
-  '/mygroups/$groupId': typeof MygroupsGroupIdRoute
+  '/mygroups/$groupName': typeof MygroupsGroupNameRoute
   '/mygroups/': typeof MygroupsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hiscore' | '/mygroups/$groupId' | '/mygroups'
+  fullPaths: '/' | '/hiscore' | '/mygroups/$groupName' | '/mygroups'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hiscore' | '/mygroups/$groupId' | '/mygroups'
-  id: '__root__' | '/' | '/hiscore' | '/mygroups/$groupId' | '/mygroups/'
+  to: '/' | '/hiscore' | '/mygroups/$groupName' | '/mygroups'
+  id: '__root__' | '/' | '/hiscore' | '/mygroups/$groupName' | '/mygroups/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   HiscoreLazyRoute: typeof HiscoreLazyRoute
-  MygroupsGroupIdRoute: typeof MygroupsGroupIdRoute
+  MygroupsGroupNameRoute: typeof MygroupsGroupNameRoute
   MygroupsIndexRoute: typeof MygroupsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   HiscoreLazyRoute: HiscoreLazyRoute,
-  MygroupsGroupIdRoute: MygroupsGroupIdRoute,
+  MygroupsGroupNameRoute: MygroupsGroupNameRoute,
   MygroupsIndexRoute: MygroupsIndexRoute,
 }
 
@@ -141,7 +141,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/hiscore",
-        "/mygroups/$groupId",
+        "/mygroups/$groupName",
         "/mygroups/"
       ]
     },
@@ -151,8 +151,8 @@ export const routeTree = rootRoute
     "/hiscore": {
       "filePath": "hiscore.lazy.tsx"
     },
-    "/mygroups/$groupId": {
-      "filePath": "mygroups.$groupId.tsx"
+    "/mygroups/$groupName": {
+      "filePath": "mygroups.$groupName.tsx"
     },
     "/mygroups/": {
       "filePath": "mygroups.index.tsx"
