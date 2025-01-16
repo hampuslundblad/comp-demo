@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils.ts";
 import { FC } from "react";
 
 interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {

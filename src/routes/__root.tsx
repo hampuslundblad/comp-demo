@@ -1,7 +1,7 @@
-import { AppSidebar } from "@/components/AppSidebar";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { isLocalHost } from "@/utils/env";
+import { AppSidebar } from "@/components/AppSidebar.tsx";
+import { ThemeProvider } from "@/components/ThemeProvider.tsx";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar.tsx";
+import { isLocalHost } from "@/utils/env.ts";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
@@ -15,7 +15,7 @@ export const Route = createRootRoute({
           <Outlet />
         </SidebarProvider>
       </ThemeProvider>
-      {isLocalHost() ? <TanStackRouterDevtools /> : <> </>}
+      {isLocalHost() ? <TanStackRouterDevtools /> : <></>}
     </>
   ),
 });

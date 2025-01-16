@@ -4,7 +4,7 @@ import {
   Alert as ShadCnAlert,
   AlertDescription,
   AlertTitle,
-} from "@/components/ui/alert";
+} from "@/components/ui/alert.tsx";
 
 type NotificationProps = {
   title: string;
@@ -16,7 +16,7 @@ function Alert({ title, description }: NotificationProps) {
     <ShadCnAlert>
       <CircleAlert className="h-4 w-4" />
       <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>{description} </AlertDescription>
+      <AlertDescription>{description}</AlertDescription>
     </ShadCnAlert>
   );
 }

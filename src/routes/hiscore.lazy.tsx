@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
-import Layout from "@/components/Layout";
-import MainTable from "@/components/MainTable";
-import Search from "@/components/Search";
-import Alert from "@/components/Alert";
-import usePlayerHiscore from "@/hooks/usePlayerHiscore";
+import Layout from "@/components/Layout.tsx";
+import MainTable from "@/components/MainTable.tsx";
+import Search from "@/components/Search.tsx";
+import Alert from "@/components/Alert.tsx";
+import usePlayerHiscore from "@/hooks/usePlayerHiscore.tsx";
 
 export const Route = createLazyFileRoute("/hiscore")({
   component: RouteComponent,
