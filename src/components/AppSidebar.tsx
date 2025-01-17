@@ -12,6 +12,7 @@ import {
 import { Home, Trophy, User } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "@tanstack/react-router";
+import { useUser } from "@/hooks/useUser";
 
 // Menu items.
 const items = [
@@ -33,12 +34,13 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const { user } = useUser();
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-xl mb-4">
-            Application
+            {user ? `Welcome, ${user}` : "Welcome unnkown user!"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

@@ -15,13 +15,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/useToast";
 import { useMutation } from "@tanstack/react-query";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { PlusIcon } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export const Route = createFileRoute("/mygroups/")({
   component: RouteComponent,
-  loader: () => fetchUser("testuser"),
+  loader: () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      return fetchUser(user);
+    } else {
+      return { groups: [] };
+    }
+  },
   staleTime: 10 * 60 * 1000, // 10 minutes
   errorComponent: () => <div>Error</div>,
 });
@@ -51,14 +58,7 @@ const CreateGroupDialog = () => {
   const groupNameRef = useRef<HTMLInputElement>(null);
   const [isOpened, setIsOpened] = useState(false);
   const { toast } = useToast();
-
-  useEffect(() => {
-    toast({
-      title: "Group created",
-      variant: "success",
-    });
-  }, []);
-
+  const router = useRouter();
   const {
     mutate: createGroup,
     isError: isCreateGroupError,
@@ -68,9 +68,10 @@ const CreateGroupDialog = () => {
     onSuccess: () => {
       setIsOpened(false);
       toast({
-        title: "Group created",
+        title: `${groupNameRef.current?.value ?? "Group"} created!`,
         variant: "success",
       });
+      router.invalidate(); // Invalidate the loader to refetch the data
     },
   });
 
@@ -85,7 +86,7 @@ const CreateGroupDialog = () => {
         <DialogHeader>
           <DialogTitle id="dialog-title">Create a group</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 my-4">
           <Label htmlFor="create-group-input">Name of group</Label>
           <Input ref={groupNameRef} id="create-group-input" />
           {isCreateGroupError && (
